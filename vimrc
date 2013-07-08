@@ -1,6 +1,6 @@
 set nocompatible " Use Vim defaults instead of 100% vi compatibility
 
-" Now we set some defaults for the editor 
+" Now we set some defaults for the editor
 set autoindent " always set autoindenting on
 set backupcopy=yes " Keep a backup file
 set viminfo='20,\"50 " read/write a .viminfo file, don't store more than 50 lines of registers
@@ -28,10 +28,6 @@ set title
 
 " Break line at 80 chars
 "set tw=79
-
-" Use space and backspace for quick navigation forward/back.
-"noremap <Space> <PageDown>
-"noremap <BS> <PageUp>
 
 " When editing a file, always jump to the last known cursor position. Don't
 " " do it when the position is invalid or when inside an event handler
@@ -69,11 +65,11 @@ vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
-" syntax on
+syntax on
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-" set background=dark
+set background=dark
 
 if has("autocmd")
  " Enabled file type detection
@@ -107,10 +103,7 @@ try
 catch /E145/
 endtry
 
-syntax on
-set bg=dark
-
-nnoremap <C-L> :%s/\s*$//g<CR>
+nnoremap <C-L> :%s/\s\+$//<cr>:let @/=''<CR>:noh<CR>
 
 set vb t_vb=
 
@@ -128,11 +121,11 @@ map <silent> <C-n> :tabe<CR>
 set nocompatible               " be iMproved
 filetype off                   " required!
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -173,6 +166,7 @@ filetype plugin indent on     " required!
 
 "NERDTree open for all tabs
 let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeDirArrows = 1
 
 " Search
 set hlsearch                      " highlight matches
@@ -187,22 +181,6 @@ set smartcase                     " ... unless they contain at least one capital
 " silent !mkdir ~/.vim/_backup > /dev/null 2>&1
 " silent !mkdir ~/.vim/_temp > /dev/null 2>&1
 
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-
-  " Start the status line
-  set statusline=%f\ %m\ %r
-
-  " Add fugitive
-  set statusline+=%{fugitive#statusline()}
-
-  " Finish the statusline
-  set statusline+=Line:%l/%L[%p%%]
-  set statusline+=Col:%v
-  " set statusline+=Buf:#%n
-  " set statusline+=[%b][0x%B]
-endif
-
 " Key maps for phpDocumentor
 au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
@@ -210,6 +188,7 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
 " airlines preferences
 set t_Co=256
+set laststatus=2  " always show the status bar
 let g:airline_enable_syntastic=1
 let g:airline_powerline_fonts=1
 
@@ -219,7 +198,7 @@ let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '␤ '
 let g:airline_fugitive_prefix = '⎇ '
 let g:airline_paste_symbol = 'ρ'
-let g:airline_readonly_symbol = '☢'
+let g:airline_readonly_symbol = '✗'
 
 let g:pdv_cfg_Package = 'Crononauta'
 let g:pdv_cfg_Author = 'Javier Carranza <javier.carranza@crononauta.com>'
