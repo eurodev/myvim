@@ -144,7 +144,7 @@ Bundle 'sumpygump/php-documentor-vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+" Bundle "honza/snipmate-snippets"
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -155,7 +155,6 @@ Bundle 'FuzzyFinder'
 
 " Bundle vim-airline
 Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -214,9 +213,14 @@ set t_Co=256
 let g:airline_enable_syntastic=1
 let g:airline_powerline_fonts=1
 
+" unicode symbols
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_readonly_symbol = '☢'
+
 let g:pdv_cfg_Package = 'Crononauta'
 let g:pdv_cfg_Author = 'Javier Carranza <javier.carranza@crononauta.com>'
 let g:pdv_cfg_ClassTags = ["package","author","version"]
-
-let g:bufferline_echo=0
-set statusline=%{bufferline#generate_string()}
