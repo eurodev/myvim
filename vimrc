@@ -1,5 +1,4 @@
 set nocompatible " Use Vim defaults instead of 100% vi compatibility
-set backspace=indent,eol,start " more powerful backspacing
 
 " Now we set some defaults for the editor 
 set autoindent " always set autoindenting on
@@ -27,9 +26,12 @@ set backspace=indent,eol,start
 " Set title of window according to filename.
 set title
 
+" Break line at 80 chars
+"set tw=79
+
 " Use space and backspace for quick navigation forward/back.
-noremap <Space> <PageDown>
-noremap <BS> <PageUp>
+"noremap <Space> <PageDown>
+"noremap <BS> <PageUp>
 
 " When editing a file, always jump to the last known cursor position. Don't
 " " do it when the position is invalid or when inside an event handler
@@ -138,7 +140,7 @@ Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'sumpygump/php-documentor-vim'
-Bundle 'joestelmach/lint.vim'
+" Bundle 'joestelmach/lint.vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle "tomtom/tlib_vim"
@@ -150,6 +152,10 @@ Bundle 'jistr/vim-nerdtree-tabs'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+
+" Bundle vim-airline
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -175,12 +181,12 @@ set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 
-set backupdir=~/.vim/_backup    " where to put backup files.
-set directory=~/.vim/_temp      " where to put swap files.
+" set backupdir=~/.vim/_backup    " where to put backup files.
+" set directory=~/.vim/_temp      " where to put swap files.
 
 " Create _folders if dont exist
-silent !mkdir ~/.vim/_backup > /dev/null 2>&1
-silent !mkdir ~/.vim/_temp > /dev/null 2>&1
+" silent !mkdir ~/.vim/_backup > /dev/null 2>&1
+" silent !mkdir ~/.vim/_temp > /dev/null 2>&1
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
@@ -203,6 +209,14 @@ au BufRead,BufNewFile *.php inoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <C-P> :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <C-P> :call PhpDocRange()<CR>
 
+" airlines preferences
+set t_Co=256
+let g:airline_enable_syntastic=1
+let g:airline_powerline_fonts=1
+
 let g:pdv_cfg_Package = 'Crononauta'
-let g:pdv_cfg_Author = 'Francisco Pérez <francisco.perez@crononauta.com>'
+let g:pdv_cfg_Author = 'Javier Carranza <javier.carranza@crononauta.com>'
 let g:pdv_cfg_ClassTags = ["package","author","version"]
+
+let g:bufferline_echo=0
+set statusline=%{bufferline#generate_string()}
