@@ -75,5 +75,11 @@ Another required package.
 ### Bundle 'FuzzyFinder'
 Allows you to find files/folders and open them just typing a part of its name.
 
+### Bundle 'bling/vim-airline'
+Lean & mean statusline for vim that's light as air
+
+### Bundle 'bling/vim-bufferline'
+Super simple vim plugin to show the list of buffers in the command bar
+
 ## Thanks
 Well, I would like to thank to [eurodev](https://github.com/eurodev) and all [Crononauta](https://github.com/crononauta) team for discovering me this wonderfull editor. Special thanks to [nacmartin](https://github.com/nacmartin), your plugins recommendations help me soooo much.
