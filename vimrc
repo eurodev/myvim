@@ -7,7 +7,7 @@ set viminfo='20,\"50 " read/write a .viminfo file, don't store more than 50 line
 set history=100 " keep 50 lines of command line history
 set ruler " show the cursor position all the time
 set expandtab
-set tabstop=2
+set tabstop=4
 set listchars=tab:>.,trail:-,extends:>,precedes:<
 set list
 set encoding=utf-8
