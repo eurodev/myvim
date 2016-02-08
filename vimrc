@@ -149,10 +149,20 @@ Bundle 'FuzzyFinder'
 " Bundle vim-airline
 Bundle 'bling/vim-airline'
 
+" Bundle gitgutter
+Bundle 'airblade/vim-gitgutter'
+
+" Bundle vim-puppet
+Bundle 'rodjek/vim-puppet'
+
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
+
+" gitgutter config
+set updatetime=250
+let g:gitgutter_max_signs = 500  " default value
 
 filetype plugin indent on     " required!
 " Brief help
